@@ -35,15 +35,15 @@ class TCPServer {
 				new DataOutputStream(connectionSocket.getOutputStream()); 
 
 			// Legge una linea (terminata da \n) dal client
-			clientNumbers = inFromClient.readLine().split("\\s+");
-			x = Integer.parseInt(clientNumbers[0]);
-			y = Integer.parseInt(clientNumbers[1]);
+			clientNumbers = inFromClient.readLine().split(" ");
+			x = Integer.valueOf(clientNumbers[0]);
+			y = Integer.valueOf(clientNumbers[1]);
 
 			// Calcola la somma
 			sum = x + y;
 
 			// Invia la risposta al client
-			outToClient.writeBytes(Integer.toString(sum) + '\n');
+			outToClient.writeBytes(String.valueOf(sum) + '\n');
 
 			connectionSocket.close();
 		}
