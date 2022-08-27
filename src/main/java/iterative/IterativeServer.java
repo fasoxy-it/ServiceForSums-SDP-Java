@@ -8,6 +8,7 @@ import java.net.Socket;
 
 public class IterativeServer {
     public static void main(String argv[]) throws Exception {
+
         String[] clientNumbers;
         Integer x;
         Integer y;

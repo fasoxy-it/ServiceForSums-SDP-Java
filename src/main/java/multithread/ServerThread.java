@@ -13,19 +13,25 @@ public class ServerThread extends Thread {
 
     // the constructor argument is an established socket
     public ServerThread(Socket s) {
+
         connectionSocket = s;
+
         try {
+
             inFromClient =
                     new BufferedReader(
                             new InputStreamReader(connectionSocket.getInputStream()));
+
             outToClient =
                     new DataOutputStream(connectionSocket.getOutputStream());
+
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
     public void run() {
+
         String[] clientNumbers;
         Integer x;
         Integer y;
